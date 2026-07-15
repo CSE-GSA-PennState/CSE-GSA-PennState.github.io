@@ -1,0 +1,1306 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CSE-GSA · Computer Science and Engineering Graduate Student Association at Penn State</title>
+<meta name="description" content="CSE-GSA is the graduate student association for Computer Science and Engineering at Penn State. Events, peer support, professional development, a research symposium, and a resource library for CSE grad students.">
+<meta property="og:title" content="CSE-GSA at Penn State">
+<meta property="og:description" content="The graduate community for Computer Science and Engineering at Penn State.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23041e42'/%3E%3Cpath d='M9 22 L16 10 L23 22 Z' fill='none' stroke='%234c8dff' stroke-width='1.5'/%3E%3Ccircle cx='16' cy='10' r='2.7' fill='%2396bee6'/%3E%3Ccircle cx='9' cy='22' r='2.7' fill='%234c8dff'/%3E%3Ccircle cx='23' cy='22' r='2.7' fill='%234c8dff'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --nittany:#041e42; --beaver:#1e407c; --signal:#4c8dff; --signal-2:#7fb0ff;
+  --pugh:#96bee6; --chalk:#f4f6fa; --ink:#0b1b33; --slate:#5a6a83;
+  --line:rgba(4,30,66,.10); --line-d:rgba(150,190,230,.18);
+  --r:16px; --r-lg:22px;
+  --sh:0 1px 2px rgba(4,30,66,.04), 0 10px 30px -16px rgba(4,30,66,.28);
+  --sh-lg:0 30px 70px -35px rgba(4,30,66,.55);
+  --f-display:'Space Grotesk','Segoe UI',system-ui,sans-serif;
+  --f-body:'IBM Plex Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --f-mono:'IBM Plex Mono',ui-monospace,'SF Mono',Menlo,monospace;
+  --wrap:1140px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--chalk);color:var(--ink);font-family:var(--f-body);
+  font-size:16.5px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:clip}
+body.is-locked{overflow:hidden}
+a{color:inherit}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--signal);outline-offset:3px;border-radius:4px}
+.wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding:0 24px}
+.skip{position:absolute;left:-999px;top:0;z-index:200;background:#fff;padding:12px 18px;font-weight:600}
+a.skip:focus{left:0}
+h1,h2,h3,h4{font-family:var(--f-display);font-weight:700;letter-spacing:-.025em;line-height:1.08;margin:0}
+.h-xl{font-size:clamp(2.5rem,1.4rem + 4.4vw,4.6rem)}
+.h-lg{font-size:clamp(1.9rem,1.2rem + 2.4vw,3rem)}
+.h-md{font-size:clamp(1.15rem,1rem + .5vw,1.4rem);letter-spacing:-.015em}
+.lead{font-size:clamp(1.02rem,.98rem + .3vw,1.18rem);color:var(--slate);margin:16px 0 0}
+p{margin:0}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--f-mono);font-size:.7rem;
+  font-weight:500;text-transform:uppercase;letter-spacing:.2em;color:var(--beaver);margin-bottom:18px}
+.eyebrow::before{content:"";width:26px;height:6px;flex:none;opacity:.85;
+  background:radial-gradient(circle 3px at 3px 3px,currentColor 99%,transparent) left/50% 100% no-repeat,
+             linear-gradient(currentColor,currentColor) center/100% 1px no-repeat}
+.on-dark .eyebrow{color:var(--pugh)}
+.sec{padding:clamp(72px,9vw,120px) 0;position:relative;scroll-margin-top:92px}
+.sec--light{background:var(--chalk)}
+.sec--white{background:#fff}
+.sec--dark{background:var(--nittany);color:#fff}
+.sec--dark .lead{color:var(--pugh)}
+.sec--grid::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background-image:radial-gradient(circle 1px at 1px 1px,rgba(4,30,66,.10) 1px,transparent 0);
+  background-size:26px 26px;
+  -webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000,transparent 75%);
+  mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000,transparent 75%)}
+.sec > .wrap{position:relative;z-index:1}
+.sec-head{max-width:640px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:13px 22px;
+  border-radius:999px;font-weight:600;font-size:.94rem;text-decoration:none;white-space:nowrap;
+  transition:transform .25s cubic-bezier(.2,.8,.3,1),box-shadow .25s,background .2s,border-color .2s;will-change:transform}
+.btn svg{width:16px;height:16px;flex:none}
+.btn--primary{background:var(--signal);color:#fff;box-shadow:0 12px 30px -12px rgba(76,141,255,.75)}
+.btn--primary:hover{box-shadow:0 18px 42px -12px rgba(76,141,255,.95)}
+.btn--ghost{border:1px solid var(--line);background:#fff;color:var(--ink);box-shadow:var(--sh)}
+.btn--ghost:hover{border-color:rgba(30,64,124,.4)}
+.on-dark .btn--ghost,.sec--dark .btn--ghost{background:rgba(255,255,255,.06);border-color:var(--line-d);color:#fff}
+.on-dark .btn--ghost:hover,.sec--dark .btn--ghost:hover{background:rgba(255,255,255,.12)}
+.btn--sm{padding:9px 15px;font-size:.83rem}
+.btn--block{width:100%}
+.is-todo{opacity:.5;cursor:not-allowed;pointer-events:none}
+.btn.is-todo{background:transparent!important;color:currentColor!important;box-shadow:none!important;
+  border:1px dashed currentColor!important;transform:none!important}
+.progress{position:fixed;top:0;left:0;right:0;height:2px;z-index:120;
+  background:linear-gradient(90deg,var(--signal),var(--pugh));transform:scaleX(0);
+  transform-origin:0 50%;transition:transform .1s linear}
+.nav{position:fixed;top:0;left:0;right:0;z-index:110;padding:14px 0;transition:padding .3s ease}
+.nav__bg{position:absolute;inset:0;background:rgba(244,246,250,.72);backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line);opacity:0;
+  transition:opacity .35s ease;pointer-events:none}
+.nav.is-stuck{padding:8px 0}
+.nav.is-stuck .nav__bg{opacity:1}
+.nav__in{position:relative;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:inline-flex;align-items:center;gap:11px;text-decoration:none;font-family:var(--f-display);
+  font-weight:700;font-size:1.02rem;color:var(--nittany);padding:8px 14px 8px 10px;border-radius:999px;
+  background:rgba(255,255,255,.7);border:1px solid var(--line);box-shadow:var(--sh);
+  transition:transform .25s,box-shadow .25s}
+.brand:hover{transform:translateY(-1px)}
+.brand__mark{width:26px;height:26px;flex:none}
+.brand__mark .n{fill:var(--signal)} .brand__mark .n2{fill:var(--pugh)}
+.brand__mark .e{stroke:var(--beaver);stroke-width:1.5;fill:none}
+.pill{position:relative;display:flex;align-items:center;gap:2px;padding:5px;border-radius:999px;
+  background:rgba(255,255,255,.7);border:1px solid var(--line);box-shadow:var(--sh)}
+.nav__link{position:relative;z-index:1;padding:9px 15px;border-radius:999px;text-decoration:none;
+  font-size:.89rem;font-weight:500;color:var(--slate);transition:color .2s}
+.nav__link:hover,.nav__link.is-active{color:var(--nittany)}
+.nav__ind{position:absolute;top:5px;bottom:5px;left:0;width:0;border-radius:999px;opacity:0;
+  background:rgba(76,141,255,.14);border:1px solid rgba(76,141,255,.28);pointer-events:none;
+  transition:transform .38s cubic-bezier(.3,1,.35,1),width .38s cubic-bezier(.3,1,.35,1),opacity .25s}
+.nav__right{display:flex;align-items:center;gap:10px}
+.burger{display:none;width:44px;height:44px;border-radius:14px;background:rgba(255,255,255,.7);
+  border:1px solid var(--line);align-items:center;justify-content:center;box-shadow:var(--sh)}
+.burger svg{width:20px;height:20px}
+.menu{position:fixed;inset:0;z-index:115;background:var(--nittany);color:#fff;padding:96px 24px 32px;
+  display:flex;flex-direction:column;gap:6px;opacity:0;visibility:hidden;transform:translateY(-8px);
+  transition:opacity .3s ease,transform .35s ease,visibility .3s;overflow-y:auto}
+.menu.is-open{opacity:1;visibility:visible;transform:none}
+.menu__link{font-family:var(--f-display);font-size:1.8rem;font-weight:600;text-decoration:none;padding:9px 0;
+  border-bottom:1px solid var(--line-d);opacity:0;transform:translateY(14px);
+  transition:opacity .4s ease,transform .4s ease}
+.menu.is-open .menu__link{opacity:1;transform:none;transition-delay:calc(var(--i,0) * 55ms + 90ms)}
+.menu__foot{margin-top:auto;display:flex;flex-direction:column;gap:10px;padding-top:24px}
+.menu__close{position:absolute;top:22px;right:22px;width:44px;height:44px;border-radius:14px;
+  border:1px solid var(--line-d);display:flex;align-items:center;justify-content:center}
+.menu__close svg{width:20px;height:20px}
+@media (max-width:980px){.pill{display:none}.nav__right .btn{display:none}.burger{display:flex}}
+.hero{position:relative;background:var(--nittany);color:#fff;overflow:hidden;
+  --pad:150px;padding:var(--pad) 0 clamp(64px,8vw,96px)}
+.hero__glow{position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(70% 55% at 78% 12%,rgba(30,64,124,.85),transparent 65%),
+             radial-gradient(55% 45% at 8% 88%,rgba(76,141,255,.20),transparent 70%)}
+#graph{position:absolute;inset:0;width:100%;height:100%;display:block}
+.hero__fade{position:absolute;left:0;right:0;bottom:0;height:140px;pointer-events:none;
+  background:linear-gradient(to bottom,transparent,rgba(4,30,66,.75))}
+.hero__in{position:relative;z-index:2;display:grid;grid-template-columns:1.15fr .85fr;
+  gap:clamp(32px,5vw,72px);align-items:center}
+.h-xl .w{display:inline-block;opacity:0;transform:translateY(18px);filter:blur(6px);
+  animation:wordIn .8s cubic-bezier(.2,.75,.25,1) forwards;animation-delay:calc(var(--i) * 70ms + 120ms)}
+@keyframes wordIn{to{opacity:1;transform:none;filter:blur(0)}}
+.h-xl .accent{background:linear-gradient(100deg,var(--pugh),var(--signal-2) 45%,#fff);
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+.hero__cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.chip{display:inline-flex;align-items:center;gap:7px;padding:7px 13px;border-radius:999px;
+  border:1px solid var(--line-d);background:rgba(255,255,255,.05);text-decoration:none;
+  font-family:var(--f-mono);font-size:.76rem;color:var(--pugh);transition:background .2s,border-color .2s}
+.chip:hover{background:rgba(255,255,255,.12)}
+.chip b{color:#fff;font-weight:600}
+.quest{background:rgba(255,255,255,.05);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border:1px solid var(--line-d);border-radius:var(--r-lg);padding:26px;box-shadow:var(--sh-lg)}
+.quest__top{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:6px}
+.quest__count{font-family:var(--f-mono);font-size:.8rem;color:var(--pugh)}
+.quest__note{font-size:.82rem;color:rgba(150,190,230,.75);margin:2px 0 16px;transition:color .3s}
+.quest__note.is-win{color:var(--signal-2)}
+.quest__track{height:4px;border-radius:999px;background:rgba(255,255,255,.12);overflow:hidden;margin-bottom:18px}
+.quest__fill{height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,var(--signal),var(--pugh));
+  transition:width .6s cubic-bezier(.3,1,.35,1)}
+.quest__list{display:flex;flex-direction:column;gap:9px}
+.quest__step{display:flex;align-items:center;gap:13px;width:100%;text-align:left;padding:12px 14px;
+  border-radius:14px;border:1px solid rgba(255,255,255,.09);background:rgba(255,255,255,.05);color:#fff;
+  font-size:.88rem;line-height:1.4;transition:border-color .25s,background .25s,transform .25s}
+.quest__step:hover{border-color:rgba(76,141,255,.5);transform:translateX(3px)}
+.quest__num{flex:none;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;
+  border:1px solid rgba(150,190,230,.4);color:var(--pugh);font-family:var(--f-mono);font-size:.78rem;transition:all .25s}
+.quest__step.is-done{background:rgba(76,141,255,.16);border-color:rgba(76,141,255,.45)}
+.quest__step.is-done .quest__num{background:var(--signal);border-color:var(--signal);color:#fff}
+.quest__step b{font-weight:600}
+.quest__step small{display:block;color:rgba(150,190,230,.8);font-size:.78rem}
+.hero__term{position:relative;z-index:2;margin-top:30px}
+.term{border-radius:var(--r-lg);border:1px solid var(--line-d);overflow:hidden;box-shadow:var(--sh-lg);
+  background:rgba(2,11,26,.62);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.term__bar{display:flex;align-items:center;gap:12px;padding:11px 16px;border-bottom:1px solid var(--line-d);
+  background:rgba(255,255,255,.03)}
+.term__dots{display:inline-flex;gap:7px}
+.term__dots i{width:11px;height:11px;border-radius:50%}
+.term__dots i:nth-child(1){background:rgba(255,110,110,.55)}
+.term__dots i:nth-child(2){background:rgba(150,190,230,.55)}
+.term__dots i:nth-child(3){background:rgba(76,141,255,.7)}
+.term__title{font-family:var(--f-mono);font-size:.74rem;color:rgba(150,190,230,.7)}
+.term__body{padding:16px 18px 14px;font-family:var(--f-mono);font-size:.82rem;line-height:1.65;
+  color:#cfe0f4;max-height:250px;overflow-y:auto;cursor:text}
+.term__body::-webkit-scrollbar{width:8px}
+.term__body::-webkit-scrollbar-thumb{background:rgba(150,190,230,.2);border-radius:8px}
+.term__out{white-space:pre-wrap;word-break:break-word}
+.term__out .l{display:block}
+.term__out .cmd{color:#fff}
+.term__out .muted{color:rgba(150,190,230,.7)}
+.term__out .warn{color:#ffc46b}
+.term__out a{color:var(--signal-2);text-decoration:none;border-bottom:1px dotted rgba(127,176,255,.5)}
+.term__out a:hover{border-bottom-style:solid}
+.term__line{display:flex;align-items:baseline;flex-wrap:wrap;gap:0}
+.term__prompt{color:var(--signal);margin-right:.6ch;white-space:nowrap}
+.term__input{color:#fff;word-break:break-word}
+.term__caret{display:inline-block;width:8px;height:1.05em;background:var(--signal-2);
+  translate:0 .15em;margin-left:1px;opacity:.35}
+.term:focus-within .term__caret{animation:blink 1.05s steps(1,end) infinite;opacity:1}
+@keyframes blink{50%{opacity:0}}
+.term__hidden{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none;left:-9999px}
+.term__chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
+.term__chip{font-family:var(--f-mono);font-size:.74rem;color:var(--pugh);padding:5px 11px;border-radius:8px;
+  border:1px solid var(--line-d);background:rgba(255,255,255,.04);transition:background .2s,border-color .2s,color .2s}
+.term__chip:hover{background:rgba(76,141,255,.16);border-color:rgba(76,141,255,.45);color:#fff}
+@media (max-width:980px){.hero{--pad:118px}.hero__in{grid-template-columns:1fr;gap:40px}}
+.split{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(32px,6vw,80px);align-items:start}
+.split__head{position:sticky;top:110px}
+.rows{display:flex;flex-direction:column}
+.row{display:grid;grid-template-columns:auto 1fr;gap:20px;padding:26px 0;border-top:1px solid var(--line)}
+.row:last-child{border-bottom:1px solid var(--line)}
+.row__ic{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;flex:none;
+  background:rgba(76,141,255,.10);color:var(--beaver);transition:transform .3s,background .3s,color .3s}
+.row__ic svg{width:19px;height:19px}
+.row:hover .row__ic{background:var(--signal);color:#fff;transform:rotate(-6deg) scale(1.06)}
+.row h3{margin-bottom:6px}
+.row p{color:var(--slate);font-size:.98rem}
+@media (max-width:860px){.split{grid-template-columns:1fr;gap:36px}.split__head{position:static}}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:44px}
+.card{position:relative;overflow:hidden;padding:26px 22px;border-radius:var(--r-lg);background:#fff;
+  border:1px solid var(--line);box-shadow:var(--sh);
+  transition:transform .35s cubic-bezier(.2,.8,.3,1),box-shadow .35s,border-color .35s}
+.card::before,.evt::before,.res::before,.jcard::before,.sub::before{content:"";position:absolute;inset:0;
+  border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .3s;
+  background:radial-gradient(240px circle at var(--mx,-300px) var(--my,-300px),rgba(76,141,255,.12),transparent 62%)}
+.jcard::before,.sub::before{background:radial-gradient(280px circle at var(--mx,-300px) var(--my,-300px),rgba(150,190,230,.14),transparent 62%)}
+.card:hover{transform:translateY(-5px);box-shadow:var(--sh-lg);border-color:rgba(76,141,255,.35)}
+.card:hover::before,.evt:hover::before,.res:hover::before,.jcard:hover::before,.sub:hover::before{opacity:1}
+.card__tag{font-family:var(--f-mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.16em;
+  color:var(--signal);display:block;margin-bottom:14px}
+.card h3{margin-bottom:8px;font-size:1.1rem}
+.card p{color:var(--slate);font-size:.93rem}
+@media (max-width:980px){.grid-4{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.grid-4{grid-template-columns:1fr}}
+.filters{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.f-chip{padding:8px 15px;border-radius:999px;border:1px solid var(--line);background:#fff;font-size:.85rem;
+  font-weight:500;color:var(--slate);transition:all .2s cubic-bezier(.2,.8,.3,1)}
+.f-chip:hover{border-color:rgba(30,64,124,.4);color:var(--nittany)}
+.f-chip[aria-pressed="true"]{background:var(--nittany);border-color:var(--nittany);color:#fff}
+.seg{display:inline-flex;padding:4px;border-radius:999px;background:rgba(4,30,66,.05);border:1px solid var(--line)}
+.seg button{padding:7px 15px;border-radius:999px;font-size:.85rem;font-weight:500;color:var(--slate);transition:all .2s}
+.seg button[aria-pressed="true"]{background:#fff;color:var(--nittany);box-shadow:var(--sh)}
+.bar{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;margin-top:36px}
+.evts{margin-top:28px;display:flex;flex-direction:column;gap:12px}
+.evt{position:relative;overflow:hidden;display:grid;grid-template-columns:82px 1fr auto;gap:24px;
+  align-items:center;padding:22px;border-radius:var(--r-lg);background:#fff;border:1px solid var(--line);
+  box-shadow:var(--sh);transition:transform .3s cubic-bezier(.2,.8,.3,1),box-shadow .3s,border-color .3s}
+.evt:hover{transform:translateY(-3px);box-shadow:var(--sh-lg);border-color:rgba(76,141,255,.3)}
+.evt__date{text-align:center;padding:12px 6px;border-radius:14px;background:var(--chalk);border:1px solid var(--line)}
+.evt__mo{display:block;font-family:var(--f-mono);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--signal)}
+.evt__dy{display:block;font-family:var(--f-display);font-size:1.7rem;font-weight:700;line-height:1.1;color:var(--nittany)}
+.evt__wd{display:block;font-family:var(--f-mono);font-size:.62rem;letter-spacing:.12em;color:var(--slate);text-transform:uppercase}
+.evt__body h3{font-size:1.12rem;margin-bottom:5px}
+.evt__meta{font-family:var(--f-mono);font-size:.76rem;color:var(--slate);display:flex;flex-wrap:wrap;gap:6px 14px;margin-bottom:8px}
+.evt__body p{color:var(--slate);font-size:.93rem;max-width:56ch}
+.evt__act{display:flex;flex-direction:column;gap:8px}
+.tag{display:inline-block;padding:3px 9px;border-radius:6px;font-family:var(--f-mono);font-size:.66rem;
+  text-transform:uppercase;letter-spacing:.1em;background:rgba(30,64,124,.08);color:var(--beaver)}
+.evt.is-past{opacity:.62}
+.evt.is-past .evt__dy{color:var(--slate)}
+@media (max-width:860px){.evt{grid-template-columns:64px 1fr;gap:16px}
+  .evt__act{grid-column:1 / -1;flex-direction:row;flex-wrap:wrap}.evt__dy{font-size:1.4rem}}
+.subs{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:44px}
+.sub{position:relative;overflow:hidden;padding:30px;border-radius:var(--r-lg);border:1px solid var(--line-d);
+  background:rgba(255,255,255,.05);display:flex;flex-direction:column;
+  transition:transform .35s cubic-bezier(.2,.8,.3,1),border-color .35s,background .35s}
+.sub:hover{transform:translateY(-4px);border-color:rgba(76,141,255,.5);background:rgba(255,255,255,.08)}
+.sub__ic{width:46px;height:46px;border-radius:13px;display:grid;place-items:center;
+  background:rgba(76,141,255,.14);color:var(--pugh);margin-bottom:18px}
+.sub__ic svg{width:22px;height:22px}
+.sub h3{font-size:1.3rem;margin-bottom:8px;color:#fff}
+.sub p{color:var(--pugh);font-size:.95rem;margin-bottom:24px;flex:1}
+.sub__note{margin-top:30px;font-family:var(--f-mono);font-size:.8rem;color:rgba(150,190,230,.7);text-align:center}
+@media (max-width:720px){.subs{grid-template-columns:1fr}}
+.search{position:relative;flex:1;min-width:240px;max-width:420px}
+.search > svg{position:absolute;left:16px;top:50%;transform:translateY(-50%);width:17px;height:17px;color:var(--slate);pointer-events:none}
+.search input{width:100%;padding:13px 58px 13px 44px;border-radius:999px;border:1px solid var(--line);
+  background:#fff;font:inherit;font-size:.92rem;color:var(--ink);box-shadow:var(--sh);transition:border-color .2s,box-shadow .2s}
+.search input:focus{outline:none;border-color:var(--signal);box-shadow:0 0 0 4px rgba(76,141,255,.14)}
+.search kbd{position:absolute;right:14px;top:50%;transform:translateY(-50%);font-family:var(--f-mono);
+  font-size:.7rem;color:var(--slate);border:1px solid var(--line);border-radius:6px;padding:2px 7px;background:var(--chalk)}
+.count{font-family:var(--f-mono);font-size:.78rem;color:var(--slate);white-space:nowrap}
+.res-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:26px}
+.res{position:relative;overflow:hidden;display:flex;flex-direction:column;gap:9px;padding:22px;
+  border-radius:var(--r-lg);background:#fff;border:1px solid var(--line);box-shadow:var(--sh);text-decoration:none;
+  transition:transform .3s cubic-bezier(.2,.8,.3,1),box-shadow .3s,border-color .3s}
+.res:hover{transform:translateY(-4px);box-shadow:var(--sh-lg);border-color:rgba(76,141,255,.35)}
+.res__top{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.res__arrow{width:16px;height:16px;color:var(--slate);flex:none;transition:transform .3s,color .3s}
+.res:hover .res__arrow{transform:translate(3px,-3px);color:var(--signal)}
+.res h3{font-size:1.03rem}
+.res p{color:var(--slate);font-size:.9rem;flex:1}
+.res__host{font-family:var(--f-mono);font-size:.7rem;color:var(--slate);opacity:.8;word-break:break-all}
+.res__tags{display:flex;flex-wrap:wrap;gap:5px}
+.skel{height:150px;border-radius:var(--r-lg);border:1px solid var(--line);background:#fff;position:relative;overflow:hidden}
+.skel::after{content:"";position:absolute;inset:0;transform:translateX(-100%);animation:sweep 1.3s infinite;
+  background:linear-gradient(90deg,transparent,rgba(4,30,66,.05),transparent)}
+@keyframes sweep{100%{transform:translateX(100%)}}
+.empty{grid-column:1 / -1;text-align:center;padding:56px 24px;border-radius:var(--r-lg);
+  border:1px dashed var(--line);background:rgba(255,255,255,.6)}
+.empty h3{margin-bottom:8px}
+.empty p{color:var(--slate);margin-bottom:20px}
+@media (max-width:980px){.res-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:640px){.res-grid{grid-template-columns:1fr}.search kbd{display:none}}
+.join-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:44px}
+.jcard{position:relative;overflow:hidden;padding:30px;border-radius:var(--r-lg);border:1px solid var(--line-d);
+  background:rgba(255,255,255,.05);transition:transform .35s cubic-bezier(.2,.8,.3,1),border-color .35s,background .35s}
+.jcard:hover{transform:translateY(-4px);border-color:rgba(76,141,255,.5);background:rgba(255,255,255,.08)}
+.jcard h3{font-size:1.28rem;margin-bottom:8px}
+.jcard p{color:var(--pugh);font-size:.94rem;margin-bottom:22px}
+.jcard--lead{background:linear-gradient(150deg,rgba(76,141,255,.20),rgba(30,64,124,.16));border-color:rgba(76,141,255,.35)}
+.path{margin-top:48px;display:grid;grid-template-columns:repeat(3,1fr);position:relative}
+.path::before{content:"";position:absolute;top:22px;left:12%;right:12%;height:2px;background:rgba(150,190,230,.2)}
+.path__fill{position:absolute;top:22px;left:12%;height:2px;width:0;box-shadow:0 0 12px rgba(76,141,255,.7);
+  background:linear-gradient(90deg,var(--signal),var(--pugh));transition:width .7s cubic-bezier(.3,1,.35,1)}
+.step{position:relative;z-index:1;text-align:center;padding:0 12px;color:#fff}
+.step__dot{width:44px;height:44px;margin:0 auto 14px;border-radius:50%;display:grid;place-items:center;
+  background:var(--nittany);border:2px solid rgba(150,190,230,.35);color:var(--pugh);font-family:var(--f-mono);
+  font-size:.9rem;transition:all .35s cubic-bezier(.3,1,.35,1)}
+.step:hover .step__dot{border-color:var(--signal);transform:scale(1.08)}
+.step.is-done .step__dot{background:var(--signal);border-color:var(--signal);color:#fff;box-shadow:0 0 0 6px rgba(76,141,255,.16)}
+.step b{display:block;font-family:var(--f-display);font-weight:600;font-size:1rem;margin-bottom:4px}
+.step span{color:var(--pugh);font-size:.86rem}
+@media (max-width:860px){.join-grid{grid-template-columns:1fr}
+  .path{grid-template-columns:1fr;gap:26px}.path::before,.path__fill{display:none}}
+.faq{max-width:780px;margin:44px auto 0;display:flex;flex-direction:column;gap:10px}
+.faq__item{border:1px solid var(--line);border-radius:var(--r);background:#fff;overflow:hidden;
+  box-shadow:var(--sh);transition:border-color .25s}
+.faq__item.is-open{border-color:rgba(76,141,255,.4)}
+.faq__q{width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:19px 22px;
+  text-align:left;font-family:var(--f-display);font-weight:600;font-size:1rem;color:var(--nittany)}
+.faq__q svg{width:17px;height:17px;flex:none;color:var(--slate);transition:transform .35s cubic-bezier(.3,1,.35,1),color .25s}
+.faq__item.is-open .faq__q svg{transform:rotate(180deg);color:var(--signal)}
+.faq__a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .38s cubic-bezier(.3,1,.35,1)}
+.faq__item.is-open .faq__a{grid-template-rows:1fr}
+.faq__a > div{overflow:hidden}
+.faq__a p{padding:0 22px 20px;color:var(--slate);font-size:.95rem}
+.foot{background:var(--nittany);color:#fff;padding:72px 0 28px;position:relative;overflow:hidden}
+.foot::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(60% 50% at 85% 0%,rgba(76,141,255,.14),transparent 65%)}
+.foot__grid{position:relative;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:36px}
+.foot h4{font-family:var(--f-mono);font-size:.7rem;font-weight:500;text-transform:uppercase;
+  letter-spacing:.18em;color:var(--pugh);margin-bottom:16px}
+.foot ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px}
+.foot a{color:#dfe9f6;text-decoration:none;font-size:.92rem;transition:color .2s}
+.foot a:hover{color:var(--signal-2)}
+.foot__blurb{color:var(--pugh);font-size:.93rem;margin:12px 0 18px;max-width:34ch}
+.socials{display:flex;gap:10px}
+.social{width:40px;height:40px;border-radius:50%;border:1px solid var(--line-d);display:grid;place-items:center;
+  color:var(--pugh);transition:background .2s,border-color .2s,color .2s,transform .2s}
+.social svg{width:18px;height:18px}
+.social:hover{background:rgba(76,141,255,.16);border-color:rgba(76,141,255,.45);color:#fff;transform:translateY(-2px)}
+.foot__bot{position:relative;margin-top:52px;padding-top:22px;border-top:1px solid var(--line-d);
+  display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between}
+.foot__bot p{font-family:var(--f-mono);font-size:.74rem;color:rgba(150,190,230,.7)}
+.top-btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--f-mono);font-size:.74rem;
+  color:var(--pugh);text-decoration:none;padding:8px 14px;border:1px solid var(--line-d);border-radius:999px;
+  transition:background .2s,transform .2s}
+.top-btn:hover{background:rgba(255,255,255,.08);transform:translateY(-2px)}
+@media (max-width:860px){.foot__grid{grid-template-columns:1fr 1fr;gap:32px}}
+@media (max-width:520px){.foot__grid{grid-template-columns:1fr}}
+[data-reveal]{opacity:0;transform:translateY(26px);transition-delay:var(--d,0ms);
+  transition:opacity .8s cubic-bezier(.2,.8,.3,1),transform .8s cubic-bezier(.2,.8,.3,1)}
+[data-reveal].is-in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+  [data-reveal]{opacity:1;transform:none}
+  .h-xl .w{opacity:1;transform:none;filter:none}
+  .term:focus-within .term__caret{animation:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="progress" id="prog" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <div class="nav__bg"></div>
+  <div class="wrap nav__in">
+    <a class="brand" href="#top" aria-label="CSE-GSA home">
+      <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true">
+        <path class="e" d="M9 22 L16 10 L23 22 Z"/><circle class="n2" cx="16" cy="10" r="2.8"/>
+        <circle class="n" cx="9" cy="22" r="2.8"/><circle class="n" cx="23" cy="22" r="2.8"/>
+      </svg>CSE-GSA
+    </a>
+    <nav class="pill" id="pill" aria-label="Sections">
+      <span class="nav__ind" id="ind" aria-hidden="true"></span>
+      <a class="nav__link" href="#about">About</a>
+      <a class="nav__link" href="#events">Events</a>
+      <a class="nav__link" href="#symposium">Symposium</a>
+      <a class="nav__link" href="#resources">Resources</a>
+      <a class="nav__link" href="#join">Join</a>
+      <a class="nav__link" href="#faq">FAQ</a>
+    </nav>
+    <div class="nav__right">
+      <a class="btn btn--primary btn--sm" data-link="membership" data-magnet>Become a member
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="menu" id="menu">
+  <button class="menu__close" id="menuClose" aria-label="Close menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+  <a class="menu__link" href="#about" style="--i:0">About</a>
+  <a class="menu__link" href="#events" style="--i:1">Events</a>
+  <a class="menu__link" href="#symposium" style="--i:2">Symposium</a>
+  <a class="menu__link" href="#resources" style="--i:3">Resources</a>
+  <a class="menu__link" href="#join" style="--i:4">Join</a>
+  <a class="menu__link" href="#faq" style="--i:5">FAQ</a>
+  <a class="menu__link" href="#contact" style="--i:6">Contact</a>
+  <div class="menu__foot on-dark">
+    <a class="btn btn--primary btn--block" data-link="membership">Become a member</a>
+    <a class="btn btn--ghost btn--block" data-link="groupChat">Open the Discord</a>
+  </div>
+</div>
+
+<main id="main">
+  <section class="hero on-dark" id="top">
+    <div class="hero__glow"></div>
+    <canvas id="graph" aria-hidden="true"></canvas>
+    <div class="hero__fade"></div>
+    <div class="wrap hero__in">
+      <div>
+        <span class="eyebrow">Penn State &middot; Computer Science and Engineering</span>
+        <h1 class="h-xl" id="headline">Find your people in <span class="accent">CSE</span>.</h1>
+        <p class="lead" style="max-width:52ch">CSE-GSA is the graduate student association for Computer
+          Science and Engineering at Penn State. Events, peer support, professional development, and a
+          resource library.</p>
+        <div class="hero__cta">
+          <a class="btn btn--primary" data-link="membership" data-magnet>Become a member
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+          <a class="btn btn--ghost" href="#events" data-magnet>See upcoming events</a>
+        </div>
+        <div class="chips">
+          <a class="chip" href="#resources"><b id="cRes">0</b> resources</a>
+          <a class="chip" href="#events"><b id="cEvt">0</b> upcoming events</a>
+          <a class="chip" href="#join">Open to every CSE grad student</a>
+        </div>
+      </div>
+      <aside class="quest" aria-label="Membership quest">
+        <div class="quest__top">
+          <h2 class="h-md" style="color:#fff">Membership quest</h2>
+          <span class="quest__count" id="questCount">0/4</span>
+        </div>
+        <p class="quest__note" id="questNote">Tick these off as you go. Progress is saved on this device.</p>
+        <div class="quest__track"><div class="quest__fill" id="questFill"></div></div>
+        <div class="quest__list">
+          <button class="quest__step" data-step="0" aria-pressed="false"><span class="quest__num">1</span>
+            <span><b>Explore</b><small>Read the FAQ and join the Discord</small></span></button>
+          <button class="quest__step" data-step="1" aria-pressed="false"><span class="quest__num">2</span>
+            <span><b>Show up</b><small>Come to your first event</small></span></button>
+          <button class="quest__step" data-step="2" aria-pressed="false"><span class="quest__num">3</span>
+            <span><b>Connect</b><small>Meet three people outside your lab</small></span></button>
+          <button class="quest__step" data-step="3" aria-pressed="false"><span class="quest__num">4</span>
+            <span><b>Lead</b><small>Volunteer or pitch an initiative</small></span></button>
+        </div>
+      </aside>
+    </div>
+
+    <div class="wrap hero__term" data-reveal>
+      <div class="term" id="term">
+        <div class="term__bar">
+          <span class="term__dots"><i></i><i></i><i></i></span>
+          <span class="term__title">visitor@cse-gsa: ~</span>
+        </div>
+        <div class="term__body" id="termBody">
+          <div class="term__out" id="termOut" aria-live="polite"></div>
+          <div class="term__line">
+            <span class="term__prompt">visitor@cse-gsa:~$</span><span class="term__input" id="termText"></span><span class="term__caret" id="termCaret"></span>
+            <input id="termHidden" class="term__hidden" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="Type a command, then press Enter">
+          </div>
+          <div class="term__chips" id="termChips" aria-label="Quick commands"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec--light sec--grid" id="about">
+    <div class="wrap split">
+      <div class="split__head" data-reveal>
+        <span class="eyebrow">About</span>
+        <h2 class="h-lg">Grad school is easier with a network behind you.</h2>
+        <p class="lead">CSE-GSA makes graduate life in Computer Science and Engineering less isolating and
+          easier to navigate. Every CSE grad student is already a member. There is nothing to pay.</p>
+      </div>
+      <div class="rows" data-stagger>
+        <article class="row" data-reveal>
+          <div class="row__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <div><h3 class="h-md">A community that gets it</h3>
+            <p>Peers across every lab who understand quals, advisors, and the long middle of a PhD.</p></div>
+        </article>
+        <article class="row" data-reveal>
+          <div class="row__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+          <div><h3 class="h-md">Preparation for what comes next</h3>
+            <p>Career panels, resume clinics, mock interviews, and alumni who took both the industry and faculty paths.</p></div>
+        </article>
+        <article class="row" data-reveal>
+          <div class="row__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1L12 21l7.7-7.6 1.1-1a5.5 5.5 0 0 0 0-7.8Z"/></svg></div>
+          <div><h3 class="h-md">Support you can use</h3>
+            <p>Wellness programming, peer mentorship, and a resource library for finding the right office the first time.</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec--white" id="work">
+    <div class="wrap">
+      <div class="sec-head" data-reveal>
+        <span class="eyebrow">What we do</span>
+        <h2 class="h-lg">Four kinds of programming, all year.</h2>
+      </div>
+      <div class="grid-4" data-stagger>
+        <article class="card" data-reveal><span class="card__tag">Social</span><h3>Game nights and mixers</h3>
+          <p>Board games, video games, picnics, and low-key hangouts.</p></article>
+        <article class="card" data-reveal><span class="card__tag">Professional</span><h3>Panels and workshops</h3>
+          <p>Resume reviews, mock interviews, and career panels with alumni in industry and academia.</p></article>
+        <article class="card" data-reveal><span class="card__tag">Research</span><h3>Lightning talks</h3>
+          <p>Five-minute talks and reading groups across labs.</p></article>
+        <article class="card" data-reveal><span class="card__tag">Wellness</span><h3>Balance and belonging</h3>
+          <p>Mindfulness sessions, group walks, inclusive programming, and a grad voice in department committees.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec--light sec--grid" id="events">
+    <div class="wrap">
+      <div class="sec-head" data-reveal>
+        <span class="eyebrow">Events</span>
+        <h2 class="h-lg">What is on the calendar.</h2>
+        <p class="lead">Add any of these to your calendar. RSVP appears when a form is posted.</p>
+      </div>
+      <div class="bar" data-reveal>
+        <div class="filters" id="evtFilters" role="group" aria-label="Filter events by type"></div>
+        <div class="seg" id="evtWhen" role="group" aria-label="Upcoming or past">
+          <button data-when="upcoming" aria-pressed="true">Upcoming</button>
+          <button data-when="past" aria-pressed="false">Past</button>
+        </div>
+      </div>
+      <div class="evts" id="evtList" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <section class="sec sec--dark on-dark" id="symposium">
+    <div class="wrap">
+      <div class="sec-head" data-reveal>
+        <span class="eyebrow">Research symposium</span>
+        <h2 class="h-lg" style="color:#fff">Present your research at the symposium.</h2>
+        <p class="lead">Two ways to take part. Give a talk, or present a poster.</p>
+      </div>
+      <div class="subs" data-stagger>
+        <article class="sub" data-reveal>
+          <div class="sub__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v1a7 7 0 0 1-14 0v-1M12 18v4M8 22h8"/></svg></div>
+          <h3>Oral presentations</h3>
+          <p>Submit an abstract for a talk in front of the department.</p>
+          <a class="btn btn--primary" data-link="abstractForm" data-magnet>Submit an abstract
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+        </article>
+        <article class="sub" data-reveal>
+          <div class="sub__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10" width="4" height="8" rx="1"/><rect x="10" y="6" width="4" height="12" rx="1"/><rect x="16" y="13" width="4" height="5" rx="1"/><path d="M3 21h18"/></svg></div>
+          <h3>Posters</h3>
+          <p>Submit your work for the poster session and lightning showcase.</p>
+          <a class="btn btn--ghost" data-link="posterForm" data-magnet>Submit a poster
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+        </article>
+      </div>
+      <p class="sub__note">Dates and guidelines are announced on the Discord and by email.</p>
+    </div>
+  </section>
+
+  <section class="sec sec--white" id="resources">
+    <div class="wrap">
+      <div class="sec-head" data-reveal>
+        <span class="eyebrow">Resources</span>
+        <h2 class="h-lg">The links you'll need, in one place.</h2>
+        <p class="lead">Funding, wellness, computing, immigration, and department admin. Search or filter by category.</p>
+      </div>
+      <div class="bar" data-reveal>
+        <label class="search"><span class="skip">Search resources</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input id="resSearch" type="search" placeholder="Search resources" autocomplete="off">
+          <kbd>/</kbd>
+        </label>
+        <span class="count" id="resCount" aria-live="polite"></span>
+      </div>
+      <div class="filters" id="resFilters" role="group" aria-label="Filter resources by category" style="margin-top:16px"></div>
+      <div class="res-grid" id="resGrid"></div>
+      <div style="display:flex;justify-content:center;margin-top:36px" data-reveal>
+        <a class="btn btn--ghost" data-mailto data-subject="Resource for CSE-GSA" data-magnet>Email us a resource to publish
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16v12H4zM4 7l8 6 8-6"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec--dark on-dark" id="join">
+    <div class="wrap">
+      <div class="sec-head" data-reveal>
+        <span class="eyebrow">Join</span>
+        <h2 class="h-lg" style="color:#fff">Two links, and you're in.</h2>
+        <p class="lead">Membership is free and open to every CSE graduate student at Penn State.</p>
+      </div>
+      <div class="join-grid" data-stagger>
+        <div class="jcard jcard--lead" data-reveal>
+          <h3>Become a member</h3>
+          <p>Register on the Penn State student organization portal.</p>
+          <a class="btn btn--primary btn--block" data-link="membership" data-magnet>Become a member
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+        </div>
+        <div class="jcard" data-reveal>
+          <h3>Join the Discord</h3>
+          <p>Day-to-day chat, ride shares, and last-minute plans.</p>
+          <a class="btn btn--ghost btn--block" data-link="groupChat" data-magnet>Open the Discord
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+        </div>
+      </div>
+      <div class="path" id="path" data-reveal>
+        <div class="path__fill" id="pathFill"></div>
+        <button class="step" data-ob="0"><span class="step__dot">1</span><b>Sign up</b><span>Membership and Discord</span></button>
+        <button class="step" data-ob="1"><span class="step__dot">2</span><b>Show up</b><span>Any event, introduce yourself</span></button>
+        <button class="step" data-ob="2"><span class="step__dot">3</span><b>Take something on</b><span>Volunteer or pitch an idea</span></button>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:44px" data-reveal>
+        <a class="btn btn--ghost" data-link="instagram">Follow on Instagram</a>
+        <a class="btn btn--ghost" data-link="linkedin">Connect on LinkedIn</a>
+        <a class="btn btn--ghost" data-mailto>Email us</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec--light" id="faq">
+    <div class="wrap">
+      <div class="sec-head" style="margin:0 auto;text-align:center" data-reveal>
+        <span class="eyebrow">FAQ</span><h2 class="h-lg">Questions we get a lot.</h2>
+      </div>
+      <div class="faq" data-stagger>
+        <div class="faq__item" data-reveal><button class="faq__q" aria-expanded="false">How do I join?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+          <div class="faq__a"><div><p>Every CSE graduate student at Penn State is already a member. Register on the student organization portal to make it official, and join the Discord to stay in the loop.</p></div></div></div>
+        <div class="faq__item" data-reveal><button class="faq__q" aria-expanded="false">How often are events held?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+          <div class="faq__a"><div><p>Several a month during the academic year. Everything scheduled is listed above.</p></div></div></div>
+        <div class="faq__item" data-reveal><button class="faq__q" aria-expanded="false">Where do announcements go?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+          <div class="faq__a"><div><p>The Discord and our email. Follow us on Instagram and LinkedIn for the rest.</p></div></div></div>
+        <div class="faq__item" data-reveal><button class="faq__q" aria-expanded="false">Can I take on a leadership role?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+          <div class="faq__a"><div><p>Yes. Officer elections happen once a year, and committee volunteers are welcome any time. If you have an idea for an event, pitch it.</p></div></div></div>
+        <div class="faq__item" data-reveal><button class="faq__q" aria-expanded="false">I'm a new or international student. Where do I start?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+          <div class="faq__a"><div><p>Start with Resources for the offices that handle immigration, housing, health, and payroll. Then come to a mixer.</p></div></div></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot" id="contact">
+  <div class="wrap">
+    <div class="foot__grid">
+      <div>
+        <a class="brand" href="#top" style="background:rgba(255,255,255,.06);border-color:rgba(150,190,230,.2);color:#fff;box-shadow:none">
+          <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true">
+            <path class="e" d="M9 22 L16 10 L23 22 Z" style="stroke:var(--pugh)"/><circle class="n2" cx="16" cy="10" r="2.8"/>
+            <circle class="n" cx="9" cy="22" r="2.8"/><circle class="n" cx="23" cy="22" r="2.8"/>
+          </svg>CSE-GSA
+        </a>
+        <p class="foot__blurb">The graduate student association for Computer Science and Engineering at Penn State.</p>
+        <div class="socials" aria-label="Social links">
+          <a class="social" data-link="groupChat" aria-label="Discord"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.317 4.369A19.79 19.79 0 0 0 15.885 3c-.2.36-.43.845-.59 1.23a18.27 18.27 0 0 0-5.6 0C9.54 3.845 9.3 3.36 9.11 3a19.79 19.79 0 0 0-4.43 1.37C1.9 8.06 1.14 11.64 1.4 15.17a19.94 19.94 0 0 0 6.07 3.08c.49-.67.93-1.38 1.3-2.13-.71-.27-1.4-.6-2.04-.99.17-.13.34-.26.5-.4a14.24 14.24 0 0 0 12.16 0c.16.14.33.27.5.4-.65.39-1.33.72-2.05.99.38.75.81 1.46 1.3 2.13a19.9 19.9 0 0 0 6.07-3.08c.3-4.1-.53-7.65-3.5-10.8zM8.55 13.65c-1.18 0-2.15-1.08-2.15-2.4 0-1.32.95-2.41 2.15-2.41s2.17 1.09 2.15 2.4c0 1.33-.95 2.41-2.15 2.41zm6.9 0c-1.18 0-2.15-1.08-2.15-2.4 0-1.32.95-2.41 2.15-2.41s2.17 1.09 2.15 2.4c0 1.33-.94 2.41-2.15 2.41z"/></svg></a>
+          <a class="social" data-link="instagram" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+          <a class="social" data-link="linkedin" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.2 8h4.6v14H.2V8zm7.5 0h4.41v1.92h.06c.61-1.16 2.11-2.38 4.34-2.38 4.64 0 5.5 3.05 5.5 7.02V22h-4.6v-6.2c0-1.48-.03-3.38-2.06-3.38-2.06 0-2.38 1.6-2.38 3.27V22h-4.6V8z"/></svg></a>
+        </div>
+      </div>
+      <div><h4>Contact</h4><ul>
+        <li><a data-email>Email</a></li>
+        <li id="footLoc" style="color:#dfe9f6;font-size:.92rem"></li>
+      </ul></div>
+      <div><h4>Community</h4><ul>
+        <li><a data-link="membership">Become a member</a></li>
+        <li><a data-link="groupChat">Discord</a></li>
+        <li><a data-link="instagram">Instagram</a></li>
+        <li><a data-link="linkedin">LinkedIn</a></li>
+      </ul></div>
+      <div><h4>Penn State</h4><ul>
+        <li><a data-link="department">School of EECS</a></li>
+        <li><a data-link="gradSchool">Graduate School</a></li>
+        <li><a data-link="gpsa">GPSA</a></li>
+        <li><a href="#resources">All resources</a></li>
+      </ul></div>
+    </div>
+    <div class="foot__bot">
+      <p>&copy; <span id="year"></span> CSE Graduate Student Association &middot; Penn State</p>
+      <a class="top-btn" href="#top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width:13px;height:13px" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg>Back to top</a>
+    </div>
+  </div>
+</footer>
+<script>
+
+
+
+/* Actively needs to be updated */
+const CONFIG = {
+
+  /* 1 . CONTACT */
+  email:    "cse-gsa@psu.edu",
+  location: "University Park, PA",
+
+  /* 2 . BUTTON LINKS
+     Paste the URL between the quotes. */
+  links: {
+    membership:    "https://discover.psu.edu/organization/cse-gsa",
+    groupChat:     "https://discord.gg/GDACvNynr",
+    instagram:     "https://www.instagram.com/psucsegsa?igsh=cjFrdmVhNnlxbTMx&utm_source=qr",
+    linkedin:      "https://www.linkedin.com/company/computer-science-and-engineering-graduate-student-association/about/?viewAsMember=true",
+    abstractForm:  "",
+    posterForm:    "",
+    eventRsvpForm: "",
+    department:    "https://www.eecs.psu.edu/",
+    gradSchool:    "https://gradschool.psu.edu/",
+    gpsa:          "https://gpsa.psu.edu/"
+  },
+
+  /* 3 . EVENTS
+     category : "social" | "professional" | "wellness" | "service"
+     start    : "YYYY-MM-DDTHH:MM"  (24-hour, local time)
+     minutes  : how long it runs, used for the Add to calendar (.ics) file
+     rsvp     : a Microsoft Form URL for this event; leave "" to fall back to
+                links.eventRsvpForm. Past events sort out automatically. */
+  events: [
+    { title:"Fall welcome mixer", category:"social", start:"2026-08-26T17:30", minutes:120,
+      location:"Westgate Building, atrium", rsvp:"",
+      description:"Coffee, snacks, and name tags. Built for new students." },
+    { title:"Lightning talks: what is in your lab?", category:"professional", start:"2026-09-10T16:00", minutes:90,
+      location:"Westgate E203", rsvp:"",
+      description:"Five minutes, three slides, no jargon. Present or just watch." },
+    { title:"Board game night", category:"social", start:"2026-09-24T18:00", minutes:180,
+      location:"Westgate Building, grad lounge", rsvp:"",
+      description:"Bring a game or borrow ours. Pizza while it lasts." },
+    { title:"Industry and academia panel", category:"professional", start:"2026-10-08T17:00", minutes:90,
+      location:"Westgate E203", rsvp:"",
+      description:"CSE alumni who took both paths answer questions you can't ask your advisor." },
+    { title:"Walk and coffee", category:"wellness", start:"2026-10-22T08:30", minutes:60,
+      location:"Meet at the Westgate entrance", rsvp:"",
+      description:"A slow loop around campus before the day starts." },
+    { title:"STEM outreach day", category:"service", start:"2026-11-05T09:00", minutes:240,
+      location:"Local middle school, transport provided", rsvp:"",
+      description:"Run a hands-on computing activity for middle schoolers. No experience needed." },
+    { title:"Spring picnic", category:"social", start:"2026-04-16T16:00", minutes:180,
+      location:"Sunset Park", rsvp:"",
+      description:"Grills, frisbee, and the last of the semester." }
+  ],
+
+  /* 4 . RESOURCES
+     TWO WAYS TO KEEP THIS UPDATED.
+     (A) EASY: edit the list below, save, re-upload the file.
+     (B) BEST: keep a Google Sheet and the site reads it live, so future
+         officers never touch this file.
+           1. Sheet header row:  title | description | url | category | tags
+              (tags = comma-separated, optional)
+           2. File > Share > Publish to web > pick sheet > CSV > Publish
+           3. Paste the URL into resourcesSheetUrl below.
+         Edits appear within a few minutes. If the sheet is unreachable, the
+         list below is used instead, so the page never breaks. */
+  resourcesSheetUrl: "",
+
+  resources: [
+    { title:"Penn State Graduate School", url:"https://gradschool.psu.edu/", category:"Admin",
+      description:"Degree requirements, thesis and dissertation formatting, deadlines, and graduation paperwork.",
+      tags:["thesis","deadlines","forms"] },
+    { title:"Graduate and Professional Student Association", url:"https://gpsa.psu.edu/", category:"Funding",
+      description:"University-wide grad government. Conference travel grants and professional development awards.",
+      tags:["travel grant","funding"] },
+    { title:"School of EECS", url:"https://www.eecs.psu.edu/", category:"Department",
+      description:"Department directory, graduate program pages, seminars, and staff contacts.",
+      tags:["department","advising"] },
+    { title:"University Libraries", url:"https://libraries.psu.edu/", category:"Academic",
+      description:"Databases, interlibrary loan, citation managers, and subject librarians for computing.",
+      tags:["papers","library"] },
+    { title:"Institute for Computational and Data Sciences", url:"https://www.icds.psu.edu/", category:"Research",
+      description:"Roar and Roar Collab, the university research computing clusters, plus allocation requests.",
+      tags:["compute","cluster","GPU"] },
+    { title:"Student Affairs", url:"https://studentaffairs.psu.edu/", category:"Wellness",
+      description:"Counselling (CAPS), health services, career services, and student legal services.",
+      tags:["health","counselling","career"] },
+    { title:"Penn State Global", url:"https://global.psu.edu/", category:"International",
+      description:"Visas, CPT and OPT, travel signatures, and support for international graduate students.",
+      tags:["visa","OPT","international"] },
+    { title:"Human Resources", url:"https://hr.psu.edu/", category:"Funding",
+      description:"Assistantship pay dates, benefits, tax forms, and employment paperwork for grad assistants.",
+      tags:["pay","benefits","taxes"] }
+  ]
+};
+</script>
+<script>
+(function () {
+  'use strict';
+  var $  = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+  var mq = function (q) { return window.matchMedia ? window.matchMedia(q) : { matches: false }; };
+  var REDUCED = mq('(prefers-reduced-motion: reduce)').matches;
+  var HOVERS  = mq('(hover: hover)').matches;
+  var HAS_IO  = 'IntersectionObserver' in window;
+
+  var esc = function (s) {
+    return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  };
+
+  var store = (function () {
+    var ok = true, mem = {};
+    try { localStorage.setItem('__t', '1'); localStorage.removeItem('__t'); } catch (e) { ok = false; }
+    return {
+      get: function (k, d) {
+        try { if (!ok) return (k in mem) ? mem[k] : d; var v = localStorage.getItem(k); return v === null ? d : JSON.parse(v); }
+        catch (e) { return d; }
+      },
+      set: function (k, v) { try { if (ok) localStorage.setItem(k, JSON.stringify(v)); else mem[k] = v; } catch (e) { mem[k] = v; } }
+    };
+  })();
+
+  function linkOf(key) { return ((CONFIG.links && CONFIG.links[key]) || '').trim(); }
+
+  /* 1. wire links and mailto */
+  var missing = [];
+  function wireLinks(root) {
+    root = root || document;
+    $$('[data-link]', root).forEach(function (a) {
+      var key = a.getAttribute('data-link'), url = linkOf(key);
+      if (url) {
+        a.setAttribute('href', url); a.setAttribute('target', '_blank');
+        a.setAttribute('rel', 'noopener noreferrer'); a.classList.remove('is-todo'); a.removeAttribute('aria-disabled');
+      } else {
+        a.classList.add('is-todo'); a.removeAttribute('href'); a.setAttribute('aria-disabled', 'true');
+        a.setAttribute('title', 'Set CONFIG.links.' + key + ' in index.html to switch this on');
+        if (missing.indexOf('links.' + key) < 0) missing.push('links.' + key);
+      }
+    });
+    $$('[data-mailto]', root).forEach(function (a) {
+      var e = (CONFIG.email || '').trim();
+      if (e) {
+        var subj = a.getAttribute('data-subject');
+        a.setAttribute('href', 'mailto:' + e + (subj ? ('?subject=' + encodeURIComponent(subj)) : ''));
+        a.classList.remove('is-todo'); a.removeAttribute('aria-disabled');
+      } else { a.classList.add('is-todo'); a.removeAttribute('href'); a.setAttribute('aria-disabled', 'true'); }
+    });
+  }
+  wireLinks(document);
+  $$('[data-email]').forEach(function (a) {
+    var e = (CONFIG.email || '').trim();
+    if (e) { a.setAttribute('href', 'mailto:' + e); a.textContent = e; }
+    else { a.classList.add('is-todo'); missing.push('email'); }
+  });
+  var footLoc = $('#footLoc'); if (footLoc) footLoc.textContent = CONFIG.location || '';
+  var yr = $('#year'); if (yr) yr.textContent = new Date().getFullYear();
+  if (missing.length) console.warn('[CSE-GSA] Not set yet: ' + missing.join(', ') + '. Fill these into CONFIG in index.html.');
+
+  /* 2. headline word reveal */
+  (function () {
+    var h = $('#headline'); if (!h) return;
+    var kids = Array.prototype.slice.call(h.childNodes), out = [], i = 0;
+    kids.forEach(function (node) {
+      if (node.nodeType === 3) {
+        node.textContent.split(/(\s+)/).forEach(function (t) {
+          if (!t.trim()) { out.push(document.createTextNode(t)); return; }
+          var s = document.createElement('span'); s.className = 'w'; s.style.setProperty('--i', i++); s.textContent = t; out.push(s);
+        });
+      } else {
+        var s = document.createElement('span'); s.className = 'w'; s.style.setProperty('--i', i++);
+        s.appendChild(node.cloneNode(true)); out.push(s);
+      }
+    });
+    h.textContent = ''; out.forEach(function (n) { h.appendChild(n); });
+  })();
+
+  /*  3. nav */
+  var nav = $('#nav'), pill = $('#pill'), ind = $('#ind'), prog = $('#prog');
+  var navLinks = $$('.nav__link'), activeLink = null;
+  function moveInd(el) {
+    if (!el || !pill || !ind) { if (ind) ind.style.opacity = '0'; return; }
+    var p = pill.getBoundingClientRect(), r = el.getBoundingClientRect();
+    ind.style.width = r.width + 'px'; ind.style.transform = 'translateX(' + (r.left - p.left) + 'px)'; ind.style.opacity = '1';
+  }
+  navLinks.forEach(function (l) { l.addEventListener('mouseenter', function () { moveInd(l); }); });
+  if (pill) pill.addEventListener('mouseleave', function () { moveInd(activeLink); });
+  var ticking = false;
+  function onScroll() {
+    var d = document.documentElement, max = d.scrollHeight - d.clientHeight;
+    if (prog) prog.style.transform = 'scaleX(' + (max > 0 ? d.scrollTop / max : 0) + ')';
+    if (nav) nav.classList.toggle('is-stuck', d.scrollTop > 18);
+    if (d.scrollTop < 140) { navLinks.forEach(function (l) { l.classList.remove('is-active'); }); activeLink = null; moveInd(null); }
+  }
+  window.addEventListener('scroll', function () { if (ticking) return; ticking = true; requestAnimationFrame(function () { onScroll(); ticking = false; }); }, { passive: true });
+  onScroll();
+  if (HAS_IO) {
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        var l = navLinks.filter(function (x) { return x.getAttribute('href') === '#' + e.target.id; })[0];
+        if (!l) return;
+        navLinks.forEach(function (x) { x.classList.remove('is-active'); });
+        l.classList.add('is-active'); activeLink = l; moveInd(l);
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    ['about', 'events', 'symposium', 'resources', 'join', 'faq'].forEach(function (id) { var s = document.getElementById(id); if (s) spy.observe(s); });
+  }
+  window.addEventListener('resize', function () { moveInd(activeLink); });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { moveInd(activeLink); });
+
+  var menu = $('#menu'), burger = $('#burger'), menuClose = $('#menuClose');
+  function setMenu(open) { if (!menu) return; menu.classList.toggle('is-open', open); if (burger) burger.setAttribute('aria-expanded', String(open)); document.body.classList.toggle('is-locked', open); }
+  if (burger) burger.addEventListener('click', function () { setMenu(!menu.classList.contains('is-open')); });
+  if (menuClose) menuClose.addEventListener('click', function () { setMenu(false); });
+  $$('.menu__link').forEach(function (l) { l.addEventListener('click', function () { setMenu(false); }); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
+
+  /* 4. community graph  */
+  var graph = (function () {
+    var noop = { pulse: function () {} };
+    var cv = $('#graph'); if (!cv || !cv.getContext) return noop;
+    var ctx = cv.getContext('2d'); if (!ctx) return noop;
+    var AREAS = ['systems','machine learning','theory','security','HCI','networks','vision','robotics'];
+    var W = 0, H = 0, nodes = [], rings = [], raf = 0, live = true, pulseStart = -1;
+    var mouse = { x: -999, y: -999, on: false };
+    var LINK = 138, REACH = 170;
+    function build() {
+      var n = Math.max(28, Math.min(96, Math.round(W * H / 12000)));
+      var labelled = W > 820 ? 7 : 0; nodes = [];
+      for (var i = 0; i < n; i++) {
+        var hub = i < labelled;
+        nodes.push({ x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - .5) * .24, vy: (Math.random() - .5) * .24,
+          r: hub ? 3.0 : Math.random() * 1.4 + .8, hub: hub, label: hub ? AREAS[i % AREAS.length] : '', lit: 0 });
+      }
+    }
+    function resize() {
+      var r = cv.getBoundingClientRect(); W = Math.max(1, r.width); H = Math.max(1, r.height);
+      var dpr = Math.min(window.devicePixelRatio || 1, 2);
+      cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr); ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      build(); if (REDUCED) frame(0);
+    }
+    function frame(now) {
+      ctx.clearRect(0, 0, W, H);
+      var wave = -1;
+      if (pulseStart > 0) { wave = ((now - pulseStart) / 1000) * 780; if (wave > Math.sqrt(W * W + H * H)) pulseStart = -1; }
+      var cx = W / 2, cy = H / 2, i, j, k, a, b, d, dx, dy;
+      for (i = 0; i < nodes.length; i++) {
+        a = nodes[i]; if (REDUCED) continue;
+        a.x += a.vx; a.y += a.vy;
+        if (a.x < 0 || a.x > W) { a.vx *= -1; a.x = Math.max(0, Math.min(W, a.x)); }
+        if (a.y < 0 || a.y > H) { a.vy *= -1; a.y = Math.max(0, Math.min(H, a.y)); }
+        if (mouse.on) { dx = mouse.x - a.x; dy = mouse.y - a.y; d = Math.sqrt(dx * dx + dy * dy) || 1; if (d < REACH) { a.vx += (dx / d) * .012; a.vy += (dy / d) * .012; } }
+        for (k = 0; k < rings.length; k++) { dx = a.x - rings[k].x; dy = a.y - rings[k].y; d = Math.sqrt(dx * dx + dy * dy) || 1; if (Math.abs(d - rings[k].r) < 26) { a.vx += (dx / d) * .5; a.vy += (dy / d) * .5; } }
+        var sp = Math.sqrt(a.vx * a.vx + a.vy * a.vy);
+        if (sp > .75) { a.vx = a.vx / sp * .75; a.vy = a.vy / sp * .75; }
+        if (sp < .05) { a.vx += (Math.random() - .5) * .05; a.vy += (Math.random() - .5) * .05; }
+        a.vx *= .994; a.vy *= .994;
+        if (wave > 0) { dx = a.x - cx; dy = a.y - cy; if (Math.abs(Math.sqrt(dx * dx + dy * dy) - wave) < 60) a.lit = 1; }
+        a.lit *= .955;
+      }
+      for (i = 0; i < nodes.length; i++) {
+        a = nodes[i];
+        for (j = i + 1; j < nodes.length; j++) {
+          b = nodes[j]; dx = a.x - b.x; dy = a.y - b.y; d = Math.sqrt(dx * dx + dy * dy); if (d > LINK) continue;
+          var lit = Math.max(a.lit, b.lit); var al = (1 - d / LINK) * .34 + lit * .5;
+          ctx.strokeStyle = lit > .05 ? 'rgba(127,176,255,' + Math.min(al, .95).toFixed(3) + ')' : 'rgba(150,190,230,' + al.toFixed(3) + ')';
+          ctx.lineWidth = lit > .05 ? 1.15 : .8; ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
+        }
+        if (mouse.on && !REDUCED) {
+          dx = a.x - mouse.x; dy = a.y - mouse.y; d = Math.sqrt(dx * dx + dy * dy);
+          if (d < REACH) { ctx.strokeStyle = 'rgba(76,141,255,' + ((1 - d / REACH) * .6).toFixed(3) + ')'; ctx.lineWidth = 1.1; ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(mouse.x, mouse.y); ctx.stroke(); }
+        }
+      }
+      for (i = 0; i < nodes.length; i++) {
+        a = nodes[i]; var near = 0;
+        if (mouse.on && !REDUCED) { dx = a.x - mouse.x; dy = a.y - mouse.y; d = Math.sqrt(dx * dx + dy * dy); near = d < REACH ? 1 - d / REACH : 0; }
+        var glow = Math.max(near, a.lit), rad = a.r + glow * 2.4;
+        if (glow > .02) { ctx.beginPath(); ctx.arc(a.x, a.y, rad + 7 * glow, 0, Math.PI * 2); ctx.fillStyle = 'rgba(76,141,255,' + (.16 * glow).toFixed(3) + ')'; ctx.fill(); }
+        ctx.beginPath(); ctx.arc(a.x, a.y, rad, 0, Math.PI * 2);
+        ctx.fillStyle = a.hub ? 'rgba(160,198,236,' + (.85 + .15 * glow).toFixed(3) + ')' : 'rgba(127,176,255,' + (.52 + .45 * glow).toFixed(3) + ')';
+        ctx.fill();
+        if (a.hub && a.label) {
+          ctx.font = '600 11.5px "IBM Plex Mono", monospace'; ctx.save();
+          ctx.shadowColor = 'rgba(2,10,24,.9)'; ctx.shadowBlur = 6;
+          ctx.fillStyle = 'rgba(196,218,244,' + (.66 + .32 * glow).toFixed(3) + ')';
+          ctx.fillText(a.label, a.x + 10, a.y + 3.5); ctx.restore();
+        }
+      }
+      for (i = rings.length - 1; i >= 0; i--) {
+        var R = rings[i]; R.r += 5.5; R.a *= .955;
+        ctx.beginPath(); ctx.arc(R.x, R.y, R.r, 0, Math.PI * 2); ctx.strokeStyle = 'rgba(76,141,255,' + R.a.toFixed(3) + ')'; ctx.lineWidth = 1.3; ctx.stroke();
+        if (R.a < .02) rings.splice(i, 1);
+      }
+      if (!REDUCED && live) raf = requestAnimationFrame(frame);
+    }
+    resize();
+    window.addEventListener('resize', function () { cancelAnimationFrame(raf); resize(); if (!REDUCED && live) raf = requestAnimationFrame(frame); });
+    if (!REDUCED) {
+      raf = requestAnimationFrame(frame);
+      cv.addEventListener('pointermove', function (e) { var r = cv.getBoundingClientRect(); mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top; mouse.on = true; });
+      cv.addEventListener('pointerleave', function () { mouse.on = false; });
+      var hero = $('#top');
+      if (hero) hero.addEventListener('click', function (e) {
+        if (e.target.closest && e.target.closest('a, button, input, .quest, .term')) return;
+        var r = cv.getBoundingClientRect(); var x = e.clientX - r.left, y = e.clientY - r.top;
+        if (x < 0 || y < 0 || x > W || y > H) return;
+        rings.push({ x: x, y: y, r: 4, a: .55 });
+        if (nodes.length < 130) nodes.push({ x: x, y: y, vx: (Math.random() - .5) * .5, vy: (Math.random() - .5) * .5, r: 1.9, hub: false, label: '', lit: 1 });
+      });
+      if (HAS_IO) new IntersectionObserver(function (es) { live = es[0].isIntersecting; cancelAnimationFrame(raf); if (live) raf = requestAnimationFrame(frame); }, { threshold: 0 }).observe(cv);
+      document.addEventListener('visibilitychange', function () { cancelAnimationFrame(raf); if (!document.hidden && live) raf = requestAnimationFrame(frame); });
+    }
+    return { pulse: function () { if (REDUCED) return; pulseStart = performance.now(); rings.push({ x: W / 2, y: H / 2, r: 6, a: .5 }); } };
+  })();
+
+  /*  5. reveal, spotlight, magnets  */
+  $$('[data-stagger]').forEach(function (g) { $$('[data-reveal]', g).forEach(function (el, i) { el.style.setProperty('--d', (i * 80) + 'ms'); }); });
+  function reveal(root) {
+    var items = $$('[data-reveal]', root || document);
+    if (REDUCED || !HAS_IO) { items.forEach(function (e) { e.classList.add('is-in'); }); return; }
+    var io = new IntersectionObserver(function (es, o) { es.forEach(function (e) { if (!e.isIntersecting) return; e.target.classList.add('is-in'); o.unobserve(e.target); }); }, { threshold: .1, rootMargin: '0px 0px -60px' });
+    items.forEach(function (e) { if (!e.classList.contains('is-in')) io.observe(e); });
+  }
+  function spotlight(root) {
+    if (!HOVERS || REDUCED) return;
+    $$('.card, .evt, .res, .jcard, .sub', root || document).forEach(function (c) {
+      if (c.__spot) return; c.__spot = true;
+      c.addEventListener('pointermove', function (e) { var r = c.getBoundingClientRect(); c.style.setProperty('--mx', (e.clientX - r.left) + 'px'); c.style.setProperty('--my', (e.clientY - r.top) + 'px'); });
+    });
+  }
+  if (HOVERS && !REDUCED) {
+    $$('[data-magnet]').forEach(function (b) {
+      b.addEventListener('pointermove', function (e) { var r = b.getBoundingClientRect(); b.style.transform = 'translate(' + ((e.clientX - r.left - r.width / 2) * .14) + 'px,' + ((e.clientY - r.top - r.height / 2) * .22) + 'px)'; });
+      b.addEventListener('pointerleave', function () { b.style.transform = ''; });
+    });
+  }
+
+  /*  6. quest and join path */
+  (function () {
+    var steps = $$('.quest__step'), fill = $('#questFill'), count = $('#questCount'), note = $('#questNote');
+    var done = store.get('csegsa.quest', []) || [];
+    var BASE = 'Tick these off as you go. Progress is saved on this device.';
+    function paint(celebrate) {
+      steps.forEach(function (s) {
+        var i = +s.getAttribute('data-step'), on = done.indexOf(i) > -1;
+        s.classList.toggle('is-done', on); s.setAttribute('aria-pressed', String(on)); s.querySelector('.quest__num').textContent = on ? '\u2713' : String(i + 1);
+      });
+      if (fill) fill.style.width = (done.length / steps.length * 100) + '%';
+      if (count) count.textContent = done.length + '/' + steps.length;
+      var win = done.length === steps.length;
+      if (note) { note.classList.toggle('is-win', win); note.textContent = win ? 'All four. You are officially part of the graph.' : BASE; }
+      if (win && celebrate) graph.pulse();
+    }
+    steps.forEach(function (s) { s.addEventListener('click', function () { var i = +s.getAttribute('data-step'), at = done.indexOf(i); if (at > -1) done.splice(at, 1); else done.push(i); store.set('csegsa.quest', done); paint(true); }); });
+    paint(false);
+  })();
+  (function () {
+    var steps = $$('.step'), fill = $('#pathFill');
+    var done = store.get('csegsa.path', []) || [];
+    function paint() {
+      steps.forEach(function (s) { var i = +s.getAttribute('data-ob'), on = done.indexOf(i) > -1; s.classList.toggle('is-done', on); s.setAttribute('aria-pressed', String(on)); s.querySelector('.step__dot').textContent = on ? '\u2713' : String(i + 1); });
+      if (fill) fill.style.width = (done.length / steps.length * 76) + '%';
+    }
+    steps.forEach(function (s) { s.addEventListener('click', function () { var i = +s.getAttribute('data-ob'), at = done.indexOf(i); if (at > -1) done.splice(at, 1); else done.push(i); store.set('csegsa.path', done); paint(); }); });
+    paint();
+  })();
+
+  /*  7. FAQ  */
+  $$('.faq__q').forEach(function (q) {
+    q.addEventListener('click', function () {
+      var item = q.parentElement, open = item.classList.contains('is-open');
+      $$('.faq__item').forEach(function (x) { x.classList.remove('is-open'); x.querySelector('.faq__q').setAttribute('aria-expanded', 'false'); });
+      if (!open) { item.classList.add('is-open'); q.setAttribute('aria-expanded', 'true'); }
+    });
+  });
+  /*  8. events  */
+  var CATS = [{k:'all',l:'All'},{k:'social',l:'Social'},{k:'professional',l:'Professional'},{k:'wellness',l:'Wellness'},{k:'service',l:'Service'}];
+  var evCat = 'all', evWhen = 'upcoming', evtList = $('#evtList');
+  var MO = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var WD = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  function icsText(ev) {
+    var s = new Date(ev.start), e = new Date(s.getTime() + (ev.minutes || 90) * 60000);
+    var z = function (d) { return d.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z'; };
+    var q = function (t) { return String(t == null ? '' : t).replace(/\\/g, '\\\\').replace(/;/g, '\\;').replace(/,/g, '\\,').replace(/\r?\n/g, '\\n'); };
+    return ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//CSE-GSA//Penn State//EN','CALSCALE:GREGORIAN','BEGIN:VEVENT',
+      'UID:' + Math.random().toString(36).slice(2) + '@cse-gsa.psu','DTSTAMP:' + z(new Date()),'DTSTART:' + z(s),'DTEND:' + z(e),
+      'SUMMARY:' + q('CSE-GSA: ' + ev.title),'LOCATION:' + q(ev.location),'DESCRIPTION:' + q(ev.description),'END:VEVENT','END:VCALENDAR'].join('\r\n');
+  }
+  function download(ev) {
+    try {
+      var blob = new Blob([icsText(ev)], { type: 'text/calendar;charset=utf-8' });
+      var url = URL.createObjectURL(blob), a = document.createElement('a');
+      a.href = url; a.download = ev.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') + '.ics';
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+      setTimeout(function () { URL.revokeObjectURL(url); }, 1500);
+    } catch (e) { console.warn('[CSE-GSA] Calendar download blocked here; works on the live site.', e); }
+  }
+  function countTo(el, target) {
+    if (!el) return;
+    if (REDUCED) { el.textContent = String(target); return; }
+    var start = performance.now(), from = parseInt(el.textContent, 10) || 0;
+    (function tick(now) { var p = Math.min(((now || start) - start) / 700, 1), eased = 1 - Math.pow(1 - p, 3); el.textContent = String(Math.round(from + (target - from) * eased)); if (p < 1) requestAnimationFrame(tick); })(start);
+  }
+  function upcomingList() {
+    var now = Date.now();
+    return (CONFIG.events || []).map(function (e) { var t = new Date(e.start).getTime(); return Object.assign({}, e, { _t: isNaN(t) ? 0 : t }); })
+      .filter(function (e) { return e._t >= now; }).sort(function (a, b) { return a._t - b._t; });
+  }
+  function fmtDate(t) { var d = new Date(t); return WD[d.getDay()] + ' ' + MO[d.getMonth()] + ' ' + d.getDate() + ', ' + d.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' }); }
+  function setWhen(w) { evWhen = w; $$('#evtWhen button').forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-when') === w)); }); renderEvents(); }
+  function renderEvents() {
+    if (!evtList) return;
+    var now = Date.now();
+    var all = (CONFIG.events || []).map(function (e) { var t = new Date(e.start).getTime(); return Object.assign({}, e, { _t: isNaN(t) ? 0 : t }); });
+    var list = all.filter(function (e) { if ((e._t >= now ? 'upcoming' : 'past') !== evWhen) return false; return evCat === 'all' || e.category === evCat; });
+    list.sort(function (a, b) { return evWhen === 'upcoming' ? a._t - b._t : b._t - a._t; });
+    countTo($('#cEvt'), all.filter(function (e) { return e._t >= now; }).length);
+    if (!list.length) {
+      evtList.innerHTML = '<div class="empty" data-reveal><h3 class="h-md">' + (evWhen === 'upcoming' ? 'Nothing scheduled right now.' : 'No past events in this category.') + '</h3><p>'
+        + (evWhen === 'upcoming' ? 'Join the Discord and we will post the next one there.' : 'Try another category, or see what is coming up.') + '</p>'
+        + (evWhen === 'upcoming' ? '<a class="btn btn--primary" data-link="groupChat">Open the Discord</a>' : '<button class="btn btn--ghost" id="toUpcoming">See upcoming events</button>') + '</div>';
+      wireLinks(evtList); var back = $('#toUpcoming'); if (back) back.addEventListener('click', function () { setWhen('upcoming'); }); reveal(evtList); return;
+    }
+    evtList.innerHTML = list.map(function (e) {
+      var d = new Date(e._t), past = e._t < now;
+      var time = d.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' });
+      var rsvp = (e.rsvp || linkOf('eventRsvpForm')).trim();
+      return '<article class="evt' + (past ? ' is-past' : '') + '" data-reveal>'
+        + '<div class="evt__date"><span class="evt__mo">' + MO[d.getMonth()] + '</span><span class="evt__dy">' + d.getDate() + '</span><span class="evt__wd">' + WD[d.getDay()] + '</span></div>'
+        + '<div class="evt__body"><h3>' + esc(e.title) + '</h3><div class="evt__meta"><span>' + time + '</span>'
+        + (e.location ? '<span>' + esc(e.location) + '</span>' : '') + '<span class="tag">' + esc(e.category || '') + '</span></div><p>' + esc(e.description) + '</p></div>'
+        + '<div class="evt__act">'
+        + (!past && rsvp ? '<a class="btn btn--primary btn--sm" href="' + esc(rsvp) + '" target="_blank" rel="noopener noreferrer">RSVP</a>' : '')
+        + (!past ? '<button class="btn btn--ghost btn--sm" data-ics="' + esc(e.title) + '">Add to calendar</button>' : '') + '</div></article>';
+    }).join('');
+    $$('[data-ics]', evtList).forEach(function (b) { b.addEventListener('click', function () { var t = b.getAttribute('data-ics'); var ev = list.filter(function (x) { return x.title === t; })[0]; if (ev) download(ev); }); });
+    spotlight(evtList); reveal(evtList);
+  }
+  (function () {
+    var box = $('#evtFilters');
+    if (box) {
+      box.innerHTML = CATS.map(function (c) { return '<button class="f-chip" data-cat="' + c.k + '" aria-pressed="' + (c.k === 'all') + '">' + c.l + '</button>'; }).join('');
+      box.addEventListener('click', function (e) { var b = e.target.closest('.f-chip'); if (!b) return; evCat = b.getAttribute('data-cat'); $$('.f-chip', box).forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); }); renderEvents(); });
+    }
+    var seg = $('#evtWhen'); if (seg) seg.addEventListener('click', function (e) { var b = e.target.closest('button'); if (b) setWhen(b.getAttribute('data-when')); });
+    renderEvents();
+  })();
+
+  /*  9. resources  */
+  var RES = (CONFIG.resources || []).slice();
+  var resCat = 'All', resQ = '';
+  var resGrid = $('#resGrid'), resFilters = $('#resFilters'), resCountEl = $('#resCount');
+  function parseCSV(text) {
+    var rows = [], row = [], f = '', i = 0, inQ = false, c;
+    while (i < text.length) {
+      c = text.charAt(i);
+      if (inQ) { if (c === '"') { if (text.charAt(i + 1) === '"') { f += '"'; i += 2; continue; } inQ = false; i++; continue; } f += c; i++; continue; }
+      if (c === '"') { inQ = true; i++; continue; }
+      if (c === ',') { row.push(f); f = ''; i++; continue; }
+      if (c === '\r') { i++; continue; }
+      if (c === '\n') { row.push(f); f = ''; rows.push(row); row = []; i++; continue; }
+      f += c; i++;
+    }
+    row.push(f); rows.push(row);
+    return rows.filter(function (r) { return r.some(function (x) { return String(x).trim() !== ''; }); });
+  }
+  function rowsToResources(rows) {
+    if (!rows.length) return [];
+    var head = rows[0].map(function (h) { return String(h).trim().toLowerCase(); });
+    var iT = head.indexOf('title'), iD = head.indexOf('description'), iU = head.indexOf('url'), iC = head.indexOf('category'), iG = head.indexOf('tags');
+    if (iT < 0 || iU < 0) return [];
+    return rows.slice(1).map(function (r) {
+      var get = function (n) { return n >= 0 && r[n] != null ? String(r[n]).trim() : ''; };
+      return { title: get(iT), description: get(iD), url: get(iU), category: get(iC) || 'Other', tags: get(iG) ? get(iG).split(',').map(function (t) { return t.trim(); }).filter(Boolean) : [] };
+    }).filter(function (x) { return x.title && x.url; });
+  }
+  function host(u) { try { return new URL(u).hostname.replace(/^www\./, ''); } catch (e) { return ''; } }
+  function renderFilters() {
+    if (!resFilters) return;
+    var cats = ['All']; RES.forEach(function (r) { if (r.category && cats.indexOf(r.category) < 0) cats.push(r.category); });
+    if (cats.indexOf(resCat) < 0) resCat = 'All';
+    resFilters.innerHTML = cats.map(function (c) { return '<button class="f-chip" data-cat="' + esc(c) + '" aria-pressed="' + (c === resCat) + '">' + esc(c) + '</button>'; }).join('');
+  }
+  function renderRes() {
+    if (!resGrid) return;
+    var q = resQ.trim().toLowerCase();
+    var list = RES.filter(function (r) { if (resCat !== 'All' && r.category !== resCat) return false; if (!q) return true; return [r.title, r.description, r.category, (r.tags || []).join(' ')].join(' ').toLowerCase().indexOf(q) > -1; });
+    countTo($('#cRes'), RES.length);
+    if (resCountEl) resCountEl.textContent = list.length + ' of ' + RES.length + ' shown';
+    if (!list.length) {
+      resGrid.innerHTML = '<div class="empty" data-reveal><h3 class="h-md">Nothing matches that.</h3><p>Try a shorter word, clear the filter, or tell us what we are missing.</p><a class="btn btn--primary" data-mailto data-subject="Resource for CSE-GSA">Email us a resource</a></div>';
+      wireLinks(resGrid); reveal(resGrid); return;
+    }
+    resGrid.innerHTML = list.map(function (r) {
+      var h = host(r.url);
+      return '<a class="res" href="' + esc(r.url) + '" target="_blank" rel="noopener noreferrer" data-reveal>'
+        + '<div class="res__top"><span class="tag">' + esc(r.category || 'Other') + '</span><svg class="res__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></div>'
+        + '<h3>' + esc(r.title) + '</h3><p>' + esc(r.description) + '</p>'
+        + ((r.tags && r.tags.length) ? '<div class="res__tags">' + r.tags.map(function (t) { return '<span class="tag">' + esc(t) + '</span>'; }).join('') + '</div>' : '')
+        + (h ? '<span class="res__host">' + esc(h) + '</span>' : '') + '</a>';
+    }).join('');
+    spotlight(resGrid); reveal(resGrid);
+  }
+  if (resFilters) resFilters.addEventListener('click', function (e) { var b = e.target.closest('.f-chip'); if (!b) return; resCat = b.getAttribute('data-cat'); $$('.f-chip', resFilters).forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); }); renderRes(); });
+  var search = $('#resSearch');
+  if (search) {
+    search.addEventListener('input', function () { resQ = search.value; renderRes(); });
+    document.addEventListener('keydown', function (e) { var ae = document.activeElement || document.body; if (e.key === '/' && ae !== search && !/^(INPUT|TEXTAREA)$/.test(ae.tagName)) { e.preventDefault(); search.focus(); } });
+  }
+  (function loadResources() {
+    var url = (CONFIG.resourcesSheetUrl || '').trim(); renderFilters();
+    if (!url || typeof fetch !== 'function') { renderRes(); return; }
+    if (resGrid) resGrid.innerHTML = '<div class="skel"></div><div class="skel"></div><div class="skel"></div>';
+    fetch(url, { cache: 'no-store' })
+      .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.text(); })
+      .then(function (text) { var data = rowsToResources(parseCSV(text)); if (data.length) RES = data; else console.warn('[CSE-GSA] Sheet loaded but had no usable rows. Header must be: title, description, url, category, tags'); })
+      .catch(function (err) { console.warn('[CSE-GSA] Could not read the resources sheet, showing the built-in list instead.', err); })
+      .then(function () { renderFilters(); renderRes(); });
+  })();
+
+  /*  10. hero terminal  */
+  (function () {
+    var term = $('#term'), body = $('#termBody'), out = $('#termOut'), text = $('#termText'), hidden = $('#termHidden'), chipBox = $('#termChips');
+    if (!term || !hidden) return;
+    var buf = '', hist = [], hi = -1;
+    var A = function (href, label) { return '<a href="' + esc(href) + '" target="_blank" rel="noopener noreferrer">' + esc(label) + '</a>'; };
+    function scrollDown() { body.scrollTop = body.scrollHeight; }
+    function print(html, cls) { var div = document.createElement('div'); div.className = 'l' + (cls ? ' ' + cls : ''); div.innerHTML = html; out.appendChild(div); scrollDown(); }
+    function goto(id) { var el = document.getElementById(id); if (el) el.scrollIntoView({ behavior: REDUCED ? 'auto' : 'smooth' }); }
+
+    var COMMANDS = {
+      help: function () {
+        print('available commands:', 'muted');
+        print('about      what CSE-GSA is');
+        print('events     the next thing on the calendar');
+        print('symposium  present your research');
+        print('resources  jump to the resource library');
+        print('join       how to become a member');
+        print('socials    discord, instagram, linkedin');
+        print('contact    email us');
+        print('clear      clear the screen');
+      },
+      about: function () { print('CSE-GSA is the graduate student association for Computer Science and Engineering at Penn State.'); },
+      events: function () {
+        var up = upcomingList();
+        if (!up.length) { print('no events scheduled right now. try', 'muted'); return; }
+        print('next up: ' + esc(up[0].title));
+        print('         ' + fmtDate(up[0]._t) + (up[0].location ? ', ' + esc(up[0].location) : ''), 'muted');
+        print('scrolling to events...', 'muted'); goto('events');
+      },
+      symposium: function () { print('give a talk or present a poster at the research symposium.'); print('scrolling to symposium...', 'muted'); goto('symposium'); },
+      resources: function () { print(RES.length + ' resources available.'); print('scrolling to resources...', 'muted'); goto('resources'); },
+      join: function () {
+        var m = linkOf('membership');
+        if (m) print('register here: ' + A(m, m)); else print('membership link not configured yet.', 'warn');
+        print('scrolling to join...', 'muted'); goto('join');
+      },
+      socials: function () {
+        var d = linkOf('groupChat'), ig = linkOf('instagram'), li = linkOf('linkedin');
+        if (d) print('discord    ' + A(d, d)); if (ig) print('instagram  ' + A(ig, ig)); if (li) print('linkedin   ' + A(li, li));
+        if (!d && !ig && !li) print('no socials configured yet.', 'warn');
+      },
+      contact: function () { var e = (CONFIG.email || '').trim(); if (e) print('email: ' + A('mailto:' + e, e)); else print('no email configured yet.', 'warn'); },
+      whoami: function () { print('visitor@cse-gsa (prospective member)'); },
+      ls: function () { print('about  events  symposium  resources  join  faq', 'muted'); },
+      clear: function () { out.innerHTML = ''; }
+    };
+
+    function run(raw) {
+      var cmd = String(raw || '').trim();
+      if (!cmd) return;
+      print('<span class="term__prompt">visitor@cse-gsa:~$</span> <span class="cmd">' + esc(cmd) + '</span>');
+      hist.push(cmd); hi = hist.length;
+      var name = cmd.split(/\s+/)[0].toLowerCase();
+      if (name === 'sudo') { print('permission denied. try \'join\' instead.', 'warn'); return; }
+      if (COMMANDS[name]) COMMANDS[name](); else print('command not found: ' + esc(name) + '. type \'help\'.', 'warn');
+    }
+
+    function render() { text.textContent = buf; }
+    hidden.addEventListener('input', function () { buf = hidden.value; render(); scrollDown(); });
+    hidden.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') { e.preventDefault(); run(buf); buf = ''; hidden.value = ''; render(); }
+      else if (e.key === 'ArrowUp') { e.preventDefault(); if (hi > 0) { hi--; buf = hist[hi] || ''; hidden.value = buf; render(); } }
+      else if (e.key === 'ArrowDown') { e.preventDefault(); if (hi < hist.length - 1) { hi++; buf = hist[hi] || ''; } else { hi = hist.length; buf = ''; } hidden.value = buf; render(); }
+    });
+    body.addEventListener('click', function (e) { if (e.target.closest('a')) return; hidden.focus(); });
+
+    var QUICK = ['help', 'events', 'join', 'socials', 'resources', 'clear'];
+    chipBox.innerHTML = QUICK.map(function (c) { return '<button class="term__chip" data-cmd="' + c + '">' + c + '</button>'; }).join('');
+    chipBox.addEventListener('click', function (e) { var b = e.target.closest('.term__chip'); if (!b) return; run(b.getAttribute('data-cmd')); hidden.focus(); });
+
+    function boot() {
+      var lines = [
+        { t: 'cse-gsa shell ready', c: 'muted' },
+        { t: 'type a command or tap one below. try \'help\'.', c: 'muted' }
+      ];
+      if (REDUCED) { lines.forEach(function (l) { print(esc(l.t), l.c); }); return; }
+      var i = 0;
+      (function next() {
+        if (i >= lines.length) return;
+        print(esc(lines[i].t), lines[i].c); i++;
+        setTimeout(next, 380);
+      })();
+    }
+    boot();
+  })();
+
+  reveal(document);
+  spotlight(document);
+})();
+</script>
+</body>
+</html>
