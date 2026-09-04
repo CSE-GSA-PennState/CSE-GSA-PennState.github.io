@@ -134,7 +134,11 @@
         <p class="lead" id="eventsLead"></p>
       </div>
       <div class="bar" data-reveal>
-        <div class="filters" id="evtFilters" role="group" aria-label="Filter events by type"></div>
+        <div class="filters">
+          <div class="filters" id="evtFilters" role="group" aria-label="Filter events by type"></div>
+          <a class="btn btn--ghost btn--sm" data-link="suggestEvent" data-magnet><span data-label="suggestEventCta"></span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+        </div>
         <div class="seg" id="evtWhen" role="group" aria-label="Upcoming or past">
           <button data-when="upcoming" aria-pressed="true">Upcoming</button>
           <button data-when="past" aria-pressed="false">Past</button>

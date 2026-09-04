@@ -4,6 +4,7 @@ const TEXT = {
     joinCta:      "Become a member",
     discordCta:   "Open the Discord",
     positionsCta: "Apply for a position",
+    suggestEventCta: "Suggest an event",
     eventsCta:    "See upcoming events",
     abstractCta:  "Submit an abstract",
     posterCta:    "Submit a poster",
