@@ -3,6 +3,7 @@ const TEXT = {
   labels: {
     joinCta:      "Become a member",
     discordCta:   "Open the Discord",
+    positionsCta: "Apply for a position",
     eventsCta:    "See upcoming events",
     abstractCta:  "Submit an abstract",
     posterCta:    "Submit a poster",
@@ -82,7 +83,8 @@ const TEXT = {
     eyebrow: "Join",
     lead:    "Membership is free and open to every CSE graduate student at Penn State.",
     memberCard:  { title:"Become a member", desc:"Register on the Penn State student organization portal." },
-    discordCard: { title:"Join the Discord", desc:"Day-to-day chat, ride shares, and last-minute plans." }
+    discordCard: { title:"Join the Discord", desc:"Day-to-day chat, ride shares, and last-minute plans." },
+    positionsCard: { title:"Leadership positions", desc:"Apply for an open CSE-GSA leadership position this semester." }
   },
 
   faq: {

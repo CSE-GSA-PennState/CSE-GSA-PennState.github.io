@@ -4,6 +4,7 @@ const CONTACT = {
 
   links: {
     membership:    "https://discover.psu.edu/organization/cse-gsa",
+    positions:     "https://docs.google.com/forms/d/e/1FAIpQLSeYSpWEQUntRI3EtxzM_xPEBlqVZAjB-Q7PvqU6PH5LdNxbsA/viewform?usp=publish-editor",
     groupChat:     "https://discord.gg/GDACvNynr",
     instagram:     "https://www.instagram.com/psucsegsa?igsh=cjFrdmVhNnlxbTMx&utm_source=qr",
     linkedin:      "https://www.linkedin.com/company/computer-science-and-engineering-graduate-student-association/about/?viewAsMember=true",

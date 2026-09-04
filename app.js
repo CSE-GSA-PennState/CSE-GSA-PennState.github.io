@@ -131,7 +131,9 @@ const CONFIG = {
           '<div class="jcard jcard--lead" data-reveal><h3>' + esc(c.join.memberCard.title) + '</h3><p>' + esc(c.join.memberCard.desc) + '</p>'
           + '<a class="btn btn--primary btn--block" data-link="membership" data-magnet><span data-label="joinCta"></span> ' + ARROW + '</a></div>'
           + '<div class="jcard" data-reveal><h3>' + esc(c.join.discordCard.title) + '</h3><p>' + esc(c.join.discordCard.desc) + '</p>'
-          + '<a class="btn btn--ghost btn--block" data-link="groupChat" data-magnet><span data-label="discordCta"></span> ' + ARROW + '</a></div>';
+          + '<a class="btn btn--ghost btn--block" data-link="groupChat" data-magnet><span data-label="discordCta"></span> ' + ARROW + '</a></div>'
+          + '<div class="jcard" data-reveal><h3>' + esc(c.join.positionsCard.title) + '</h3><p>' + esc(c.join.positionsCard.desc) + '</p>'
+          + '<a class="btn btn--ghost btn--block" data-link="positions" data-magnet><span data-label="positionsCta"></span> ' + ARROW + '</a></div>';
       }
     }
 
